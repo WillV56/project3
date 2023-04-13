@@ -1,26 +1,30 @@
-import { cueTimer } from "./modules/cuepoints.js";
+// import { cueTimer } from "./modules/cuepoints.js";
 
 document.addEventListener("DOMContentLoaded", init)
 var myCues;
+var tag = document.createElement("script");
 tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
+var myTimer = false;
 function init() {
 
-    myCues = [
+    /* myCues = [
         { seconds: 2, callback: func1 },
         { seconds: 7, callback: func2 }
     ];
 
     cueTimer.setup("vid", myCues);
 
-    const vid = document.querySelector("#vid");
+    const vid = document.querySelector("#vid");*/
 }
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player("player", {
         height: "390",
         width: "640",
-        videoId: "7WsNK8-RWaY",
+        videoId: "YIjWwZwlHQg",
         playerVars: {
             playsinline: 1,
         },
@@ -33,6 +37,23 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     console.log('playerReady');
+}
+
+function onPlayerStateChange(event) {
+    switch(event.data) {
+        case YT.PlayerState.PLAYING:
+            console.log('starting timer');
+            myTimer = setInterval(getTime, 1000, event);
+            break;
+        case !YT.PlayerState.PLAYING:
+            if (!myTimer) {
+                console.log('no timer');
+            }
+            break;
+        default:
+            clearInterval(myTimer);
+            console.log('stopping timer');
+    }
 }
 
 function playVideo(clip)
@@ -58,4 +79,14 @@ function unmuteVideo(clip)
 function playRate(clip, rate)
 {
     clip.playbackRate = rate;
+}
+
+function func1 ()
+{
+
+}
+
+function func2 ()
+{
+
 }

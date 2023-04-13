@@ -6,9 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 3</title>
     <link rel="stylesheet" href="c/main.css">
+    <script src="j/modules/cuepoints.js" type="module"></script>
     <script src="j/main.js"></script>
 </head>
 <body>
     <h1></h1>
+
+    <div id="player"></div>
+
+
+    <div id="controls">
+        <fieldset>
+            <legend>Playback Controls</legend>
+            <input type="button" id="play_button" onclick="playVideo(vid)" value="Play" >
+            <input type="button" id="pause_button" onclick="pauseVideo(vid)" value="Pause" >
+            <input type="button" id="mute" onclick="muteVideo(vid)" value="Mute" >
+            <input type="button" id="unmute" onclick="unmuteVideo(vid)" value="Unmute" > 
+        </fieldset>
+
+        <fieldset>
+            <legend>Video Speed</legend>
+            <input type="button" id="slow" onclick="playRate(vid,.5)" value="Slow Mo" >
+            <input type="button" id="normal" onclick="playRate(vid, 1)" value="Normal" >
+            <input type="button" id="fast" onclick="playRate(vid, 2)" value="Fast Foward" >
+            
+        </fieldset>
+
+        <fieldset>
+            <legend>Captions</legend>
+            <select id="text-track" onclick="toggleTrack(vid)">
+                <option value="en">English</option>
+                <option value="off">Off</option>
+            </select>
+
+        </fieldset>
+    </div>
 </body>
 </html>

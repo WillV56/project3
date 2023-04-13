@@ -1,0 +1,40 @@
+* {
+    margin: 0rem;
+}
+
+
+.background-img {
+    background-image: url("../images/grass2.jpeg");
+    padding: 5rem;
+    color: white;
+    font-size: 50px;
+    margin-bottom: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
+}
+
+.myframe  {
+    margin: 3rem;
+}
+
+#player {
+    margin-left: 2rem;
+}
+
+.controls {
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+button {
+    color: white;
+    background-color: #66BDD9;
+    padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: large;
+}
+
+button:hover {
+    background-color: #29A0D9;
+}

@@ -111,7 +111,7 @@ function manageCues(time) {
         case 15:
             doMoreStuff();
             break;
-        case 23:
+        case 21:
             unDoStuff();
             break;
         case 33:
@@ -119,18 +119,21 @@ function manageCues(time) {
             showInfo();
             player.pauseVideo();
             setTimeout('player.playVideo();', 4000);
-            break 
+            break;
+        case 45:
+            unDoInfo();
+            break;
+        case 55:
+            changeLayout();
+            showInfo2();
+            player.pauseVideo();
+            setTimeout('player.playVideo();', 4000);
+            break;
+        case 65:
+            unDoInfo();
+            break;
     }
 }
-
-
-
-/**
- * Below are all of the functions called by the 
- * manageCues function
- * 
- */
-
 
 function doStuff() {
     console.log('doStuff');
@@ -161,6 +164,28 @@ function showInfo() {
     info.appendChild(iframe);
 }
 
+function showInfo2() {
+    const info = document.getElementById('info');
+    const iframe = document.createElement('IFRAME');
+    iframe.classList.add('myframe');
+    iframe.src = "https://www.chewy.com/pup-peroni-training-treats-made-real/dp/127473";
+    info.appendChild(iframe);
+}
+
+function unDoInfo() {
+
+    //clear iFrame
+    const infoFrame = document.querySelector('.myframe');
+    infoFrame.src ='';
+    // clear the article
+    document.querySelector('#info').innerHTML = '';
+    
+    //re-style the page
+    let iframe = player.getIframe();
+    iframe.classList.remove('layout2');
+    player.getIframe().style.border = 'none';
+    console.log('UNDONE!!!!!!!');
+}
 
 //If the video is switched from initial video, calling this function will undo DOM changed made for the first video.
 function unDoStuff() {

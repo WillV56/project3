@@ -109,8 +109,17 @@ function manageCues(time) {
            doStuff();
            break;
         case 15:
-         doMoreStuff();
-         break;
+            doMoreStuff();
+            break;
+        case 23:
+            unDoStuff();
+            break;
+        case 33:
+            changeLayout();
+            showInfo();
+            player.pauseVideo();
+            setTimeout('player.playVideo();', 4000);
+            break 
     }
 }
 
@@ -130,14 +139,17 @@ function doStuff() {
 
 
 function doMoreStuff() {
-    document.body.style.backgroundColor = "#2FF029";
+    document.body.style.backgroundColor = "#93F249";
     console.log('moreStuffDone');
+}
+
+function unDoStuff() {
+    document.body.style.backgroundColor = "white";
 }
 
 function changeLayout() {
     let iframe = player.getIframe();
     iframe.classList.add('layout2');
-    player.getIframe().style.border = '10px solid red';
     console.log('layout changed');
 }
 
@@ -145,7 +157,7 @@ function showInfo() {
     const info = document.getElementById('info');
     const iframe = document.createElement('IFRAME');
     iframe.classList.add('myframe');
-    iframe.src = "https://www.youtube.com/watch?v=7WsNK8-RWaY";
+    iframe.src = "https://www.chewy.com/petsafe-nylon-dog-leash/dp/52259";
     info.appendChild(iframe);
 }
 

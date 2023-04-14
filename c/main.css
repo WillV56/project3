@@ -21,6 +21,13 @@
     height: 405px;
 }
 
+.myframe2 {
+    display: block;
+    margin: auto;
+    width: 600px;
+    height: 525px;
+}
+
 #player {
     display: block;
     margin: auto;
@@ -55,8 +62,17 @@ button:hover {
 }
 
 #info {
+    margin-top: 3rem; 
+    margin-bottom: 3rem;
+}
+
+#thumb {
     margin-top: 3rem;
-    height: 500px;
+    margin-bottom: 3rem;
+}
+
+.hide {
+    display: none;
 }
 
 .footer {

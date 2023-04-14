@@ -100,13 +100,18 @@ function manageCues(time) {
 
     switch(time) {
         case 1:
+            changeLayout();
             doStuff();
             break;
         case 8:
+            changeLayout();
+            unDoThumb();
             doMoreStuff();
             break;
         case 12:
-           doStuff();
+            changeLayout();
+            unDoThumb();
+            doStuff();
            break;
         case 15:
             doMoreStuff();
@@ -138,16 +143,27 @@ function manageCues(time) {
 function doStuff() {
     console.log('doStuff');
     document.body.style.backgroundColor = "#AD1608";
+    const thumb = document.getElementById('thumb');
+    const iframe = document.createElement('IFRAME');
+    iframe.classList.add('myframe2');
+    iframe.src = "../images/thumbsDown.png";
+    info.appendChild(iframe);
 }
 
 
 function doMoreStuff() {
     document.body.style.backgroundColor = "#93F249";
     console.log('moreStuffDone');
+    const thumb = document.getElementById('thumb');
+    const iframe = document.createElement('IFRAME');
+    iframe.classList.add('myframe2');
+    iframe.src = "../images/thumbsUp.png";
+    info.appendChild(iframe);
 }
 
 function unDoStuff() {
     document.body.style.backgroundColor = "white";
+
 }
 
 function changeLayout() {
@@ -179,6 +195,21 @@ function unDoInfo() {
     infoFrame.src ='';
     // clear the article
     document.querySelector('#info').innerHTML = '';
+    
+    //re-style the page
+    let iframe = player.getIframe();
+    iframe.classList.remove('layout2');
+    player.getIframe().style.border = 'none';
+    console.log('UNDONE!!!!!!!');
+}
+
+function unDoThumb() {
+
+    //clear iFrame
+    const thumbFrame = document.querySelector('.myframe2');
+    thumbFrame.src ='';
+    // clear the article
+    document.querySelector('#thumb').innerHTML = '';
     
     //re-style the page
     let iframe = player.getIframe();
